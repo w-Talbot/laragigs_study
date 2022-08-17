@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Listing;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +14,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\User::factory(10)->create();
+         \App\Models\User::factory(5)->create();
+
+         Listing::factory(6)->create();
+
+//         Listing::create([
+//             'title' => 'Laravel Developer',
+//             'tags' => 'laravel, javascript',
+//             'company' => 'Acme Corp',
+//             'location' => 'Boston, MA',
+//             'email' => 'email@email.com',
+//             'website' => 'https://acme.com',
+//             'description' => 'Acme Company is an offering a challenging but rewarding opportunity. This is perfect for someone who hates roadrunners!'
+//         ]);
+//
+//        Listing::create([
+//            'title' => 'Full Stack Engineer',
+//            'tags' => 'laravel, backend, api',
+//            'company' => 'Wayne Enterprises',
+//            'location' => 'NewYork, NY',
+//            'email' => 'email2@email2.com',
+//            'website' => 'https://wayneent.com',
+//            'description' => 'This position is for people who like coding and bats. No particular reason about the bats, must enjoy working from Cave or WFC.'
+//        ]);
     }
 }
