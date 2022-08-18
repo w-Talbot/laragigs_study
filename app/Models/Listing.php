@@ -10,7 +10,7 @@ class Listing extends Model
     use HasFactory;
 
     //Can also add Model::unguard() to the Appservice Provider.php file under boot.
-    protected $fillable = ['title', 'company', 'location', 'website', 'email', 'description', 'tags'];
+    protected $fillable = ['title', 'company','logo' ,'location', 'website', 'email', 'description', 'tags'];
 
     public function scopeFilter($query, array $filters)
     {
