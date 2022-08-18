@@ -29,6 +29,15 @@ Route::get('/listings/create', [\App\Http\Controllers\ListingController::class, 
 //Store request
 Route::post('/listings', [\App\Http\Controllers\ListingController::class, 'store']);
 
+//show edit form
+Route::get('listings/{listing}/edit', [\App\Http\Controllers\ListingController::class, 'edit']);
+
+//Edit submit to Update
+Route::put('/listings/{listing}',[\App\Http\Controllers\ListingController::class, 'update']);
+
+//Delete submit to Update
+Route::delete('/listings/{listing}',[\App\Http\Controllers\ListingController::class, 'destroy']);
+
 //Single Listing:
 Route::get('/listings/{listing}', [\App\Http\Controllers\ListingController::class, 'show']);
 
