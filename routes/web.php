@@ -23,8 +23,15 @@ Route::get('/', function () {
 //All Listings:
 Route::get('/listings', [\App\Http\Controllers\ListingController::class, 'index']);
 
+//Show create form:
+Route::get('/listings/create', [\App\Http\Controllers\ListingController::class, 'create']);
+
+//Store request
+Route::post('/listings', [\App\Http\Controllers\ListingController::class, 'store']);
+
 //Single Listing:
 Route::get('/listings/{listing}', [\App\Http\Controllers\ListingController::class, 'show']);
+
 
 
 Route::get('/hello', function() {
