@@ -21,19 +21,10 @@ Route::get('/', function () {
 });
 
 //All Listings:
-Route::get('/listings', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => Listing::all()
-    ]);
-});
+Route::get('/listings', [\App\Http\Controllers\ListingController::class, 'index']);
 
 //Single Listing:
-Route::get('/listings/{listing}', function(Listing $listing){
-    return  view( 'listing', [
-        'listing' => $listing
-        ]);
-});
+Route::get('/listings/{listing}', [\App\Http\Controllers\ListingController::class, 'show']);
 
 
 Route::get('/hello', function() {
