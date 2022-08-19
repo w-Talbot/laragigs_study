@@ -25,31 +25,31 @@ Route::get('/', function () {
 Route::get('/listings', [\App\Http\Controllers\ListingController::class, 'index']);
 
 //Show create form:
-Route::get('/listings/create', [\App\Http\Controllers\ListingController::class, 'create']);
+Route::get('/listings/create', [\App\Http\Controllers\ListingController::class, 'create'])->middleware('auth');
 
-//Store request
-Route::post('/listings', [\App\Http\Controllers\ListingController::class, 'store']);
+//Store listings
+Route::post('/listings', [\App\Http\Controllers\ListingController::class, 'store'])->middleware('auth');
 
 //show edit form
-Route::get('listings/{listing}/edit', [\App\Http\Controllers\ListingController::class, 'edit']);
+Route::get('listings/{listing}/edit', [\App\Http\Controllers\ListingController::class, 'edit'])->middleware('auth');
 
 //Edit submit to Update
-Route::put('/listings/{listing}',[\App\Http\Controllers\ListingController::class, 'update']);
+Route::put('/listings/{listing}',[\App\Http\Controllers\ListingController::class, 'update'])->middleware('auth');
 
 //Delete submit to Update
-Route::delete('/listings/{listing}',[\App\Http\Controllers\ListingController::class, 'destroy']);
+Route::delete('/listings/{listing}',[\App\Http\Controllers\ListingController::class, 'destroy'])->middleware('auth');
 
 //Show register form
-Route::get('/register', [\App\Http\Controllers\UserController::class, 'create']);
+Route::get('/register', [\App\Http\Controllers\UserController::class, 'create'])->middleware('guest');
 
 //Create new user
 Route::post('/users', [ UserController::class, 'store']);
 
 //Logout user
-Route::post('/logout',[UserController::class, 'logout']);
+Route::post('/logout',[UserController::class, 'logout'])->middleware('auth');
 
-//Login User
-Route::get('/login',[UserController::class,'login']);
+//Show login form
+Route::get('/login',[UserController::class,'login'])->name('login')->middleware('guest');
 
 //Log in user
 Route::post('/users/authenticate',[UserController::class, 'authenticate']);
