@@ -29,7 +29,7 @@ class UserController extends Controller
         //Login
         auth()->login($user);
 
-        return redirect('/listings')->with('message_success_wt', 'User created an logged in.');
+        return redirect('/studies')->with('message_success_wt', 'User created an logged in.');
 
     }
 
@@ -39,7 +39,7 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/listings')->with('message_success_wt', 'Logged out successfully!');
+        return redirect('/studies')->with('message_success_wt', 'Logged out successfully!');
     }
 
     //Show user login
@@ -57,7 +57,7 @@ class UserController extends Controller
         if(auth()->attempt($formFields)){
             $request->session()->regenerate();
 
-            return redirect('/listings')->with('message_success_wt', 'You have logged in successfully!');
+            return redirect('/studies')->with('message_success_wt', 'You have logged in successfully!');
 
         }
             return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');

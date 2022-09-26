@@ -46,4 +46,9 @@ class User extends Authenticatable
     public function listings(){
         return $this->hasMany(Listing::class, 'user_id');
     }
+
+    //relationship with studies
+    public function studies(){
+        return $this->hasMany(Study::class, 'user_id');
+    }
 }

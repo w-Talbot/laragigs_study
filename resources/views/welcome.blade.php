@@ -8,9 +8,9 @@
     <title>Laragigs</title>
 </head>
 <body>
- This is the welcome.blade.php. You need to go to: 127.0.0.1:8000/listings
+ This is the welcome.blade.php. You need to go to: 127.0.0.1:8000/studies
 
-<a href="/listings"> Click Here </a>
+<a href="/studies"> Click Here </a>
 
 
 </body>

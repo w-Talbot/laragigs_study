@@ -39,6 +39,39 @@ Route::put('/listings/{listing}',[\App\Http\Controllers\ListingController::class
 //Delete submit to Update
 Route::delete('/listings/{listing}',[\App\Http\Controllers\ListingController::class, 'destroy'])->middleware('auth');
 
+
+//All Studies:
+Route::get('/studies', [\App\Http\Controllers\StudyController::class, 'index']);
+
+//Show create form:
+Route::get('/studies/create', [\App\Http\Controllers\StudyController::class, 'create'])->middleware('auth');
+
+//Store listings
+Route::post('/studies', [\App\Http\Controllers\StudyController::class, 'store'])->middleware('auth');
+
+//show edit form
+Route::get('studies/{listing}/edit', [\App\Http\Controllers\StudyController::class, 'edit'])->middleware('auth');
+
+//Edit submit to Update
+Route::put('/studies/{listing}',[\App\Http\Controllers\StudyController::class, 'update'])->middleware('auth');
+
+//Delete submit to Update
+Route::delete('/studies/{listing}',[\App\Http\Controllers\StudyController::class, 'destroy'])->middleware('auth');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Show register form
 Route::get('/register', [\App\Http\Controllers\UserController::class, 'create'])->middleware('guest');
 
@@ -54,29 +87,24 @@ Route::get('/login',[UserController::class,'login'])->name('login')->middleware(
 //Log in user
 Route::post('/users/authenticate',[UserController::class, 'authenticate']);
 
+
+
+
+
+
+
+
 //Show manage listings
 Route::get('/listings/manage',[\App\Http\Controllers\ListingController::class, 'manage'])->middleware('auth');
 
 //Single Listing:
 Route::get('/listings/{listing}', [\App\Http\Controllers\ListingController::class, 'show']);
 
+//Show manage Studies
+Route::get('/studies/manage',[\App\Http\Controllers\StudyController::class, 'manage'])->middleware('auth');
+
+//Single Study:
+Route::get('/studies/{listing}', [\App\Http\Controllers\StudyController::class, 'show']);
 
 
-Route::get('/hello', function() {
-   return response('<h1>HThis is being turned into plain text by the header, ignoring the html elements : <h1>', 200)
-   ->header('Content-Type','text/plain')
-   ->header('foo','bar');
-});
-
-Route::get('/posts/{id}', function($id){
-//    ddd($id);
-   return response('Your number is : ' . $id);
-
-}) ->where('id','[0-9]+');
-
-Route::get('/search', function(Request $request){
-//    /search?name=Brad&city=Boston
-dd($request);
-
-});
 
