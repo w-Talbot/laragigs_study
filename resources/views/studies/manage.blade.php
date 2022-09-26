@@ -1,8 +1,7 @@
-
 @extends('layout')
 
-    @section('content')
-        @include('partials._navbar')
+@section('content')
+    @include('partials._navbar')
 
         <div class="bg-gray-50 border border-gray-200 p-10 rounded">
             <header>
@@ -14,7 +13,7 @@
             </header>
             @unless($studies->isEmpty())
             @foreach($studies as $study)
-            <table class="w-full table-auto rounded-sm">
+            <table class="table table-hover">
                 <tbody>
                 <tr class="border-gray-300">
                     <td
@@ -33,7 +32,7 @@
                         ><i
                                 class="fa-solid fa-pen-to-square"
                             ></i>
-                            Edit</a
+                            Audit Files</a
                         >
                     </td>
                     <td

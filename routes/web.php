@@ -40,6 +40,7 @@ Route::put('/listings/{listing}',[\App\Http\Controllers\ListingController::class
 Route::delete('/listings/{listing}',[\App\Http\Controllers\ListingController::class, 'destroy'])->middleware('auth');
 
 
+
 //All Studies:
 Route::get('/studies', [\App\Http\Controllers\StudyController::class, 'index']);
 
@@ -50,19 +51,13 @@ Route::get('/studies/create', [\App\Http\Controllers\StudyController::class, 'cr
 Route::post('/studies', [\App\Http\Controllers\StudyController::class, 'store'])->middleware('auth');
 
 //show edit form
-Route::get('studies/{listing}/edit', [\App\Http\Controllers\StudyController::class, 'edit'])->middleware('auth');
+Route::get('studies/{study}/edit', [\App\Http\Controllers\StudyController::class, 'edit'])->middleware('auth');
 
 //Edit submit to Update
-Route::put('/studies/{listing}',[\App\Http\Controllers\StudyController::class, 'update'])->middleware('auth');
+Route::put('/studies/{study}',[\App\Http\Controllers\StudyController::class, 'update'])->middleware('auth');
 
 //Delete submit to Update
-Route::delete('/studies/{listing}',[\App\Http\Controllers\StudyController::class, 'destroy'])->middleware('auth');
-
-
-
-
-
-
+Route::delete('/studies/{study}',[\App\Http\Controllers\StudyController::class, 'destroy'])->middleware('auth');
 
 
 

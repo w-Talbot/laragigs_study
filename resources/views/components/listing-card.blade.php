@@ -1,4 +1,4 @@
-@props(['listing'])
+{{--@props(['listing'])--}}
 <!-- Item 1 -->
 <x-card>
     <div class="flex">

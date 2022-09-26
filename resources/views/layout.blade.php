@@ -34,11 +34,11 @@
     <title>Sortition | Randomise Projects</title>
 </head>
 <body class="mb-48">
+{{--@include('partials._navbar')--}}
 <main>
-{{--    @auth()--}}
+
     @yield('content')
 
-{{--    @endauth--}}
 </main>
 @include('partials._footer')
 <x-flash-message />

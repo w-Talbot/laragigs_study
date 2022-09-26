@@ -14,6 +14,7 @@ class Study extends Model
 
     public function scopeFilter($query, array $filters)
     {
+        //to do wtfix : chnage the api search - not needed and fix the search bar here.
         if($filters['tag'] ?? false){
             $query->where('tags','like','%' . request('tag') . '%');
         }
