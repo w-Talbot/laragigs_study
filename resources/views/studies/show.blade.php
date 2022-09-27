@@ -4,18 +4,17 @@
     @include('partials._navbar')
 @auth()
 
+
     <div class="container">
         <div class="col-4">
             <table class="table table-striped table-hover">
+                @foreach($sites as $site)
                 <tr>
-                    <td>S001</td>
+                    <td>
+                        <a href="#">{{$site['site_name']}}</a>
+                    </td>
                 </tr>
-                <tr>
-                    <td>S002</td>
-                </tr>
-                <tr>
-                    <td>S003</td>
-                </tr>
+                @endforeach
             </table>
         </div>
     </div>

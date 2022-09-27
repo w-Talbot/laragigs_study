@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Models\Listing;
+use App\Models\Site;
 use App\Http\Controllers\UserController;
 
 /*
@@ -18,27 +18,10 @@ use App\Http\Controllers\UserController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',[
+        'sites' => Site::all()
+        ]);
 });
-
-//All Listings:
-Route::get('/listings', [\App\Http\Controllers\ListingController::class, 'index']);
-
-//Show create form:
-Route::get('/listings/create', [\App\Http\Controllers\ListingController::class, 'create'])->middleware('auth');
-
-//Store listings
-Route::post('/listings', [\App\Http\Controllers\ListingController::class, 'store'])->middleware('auth');
-
-//show edit form
-Route::get('listings/{listing}/edit', [\App\Http\Controllers\ListingController::class, 'edit'])->middleware('auth');
-
-//Edit submit to Update
-Route::put('/listings/{listing}',[\App\Http\Controllers\ListingController::class, 'update'])->middleware('auth');
-
-//Delete submit to Update
-Route::delete('/listings/{listing}',[\App\Http\Controllers\ListingController::class, 'destroy'])->middleware('auth');
-
 
 
 //All Studies:
@@ -47,7 +30,7 @@ Route::get('/studies', [\App\Http\Controllers\StudyController::class, 'index']);
 //Show create form:
 Route::get('/studies/create', [\App\Http\Controllers\StudyController::class, 'create'])->middleware('auth');
 
-//Store listings
+//Store studies
 Route::post('/studies', [\App\Http\Controllers\StudyController::class, 'store'])->middleware('auth');
 
 //show edit form
@@ -58,12 +41,6 @@ Route::put('/studies/{study}',[\App\Http\Controllers\StudyController::class, 'up
 
 //Delete submit to Update
 Route::delete('/studies/{study}',[\App\Http\Controllers\StudyController::class, 'destroy'])->middleware('auth');
-
-
-
-
-
-
 
 
 
@@ -83,23 +60,11 @@ Route::get('/login',[UserController::class,'login'])->name('login')->middleware(
 Route::post('/users/authenticate',[UserController::class, 'authenticate']);
 
 
-
-
-
-
-
-
-//Show manage listings
-Route::get('/listings/manage',[\App\Http\Controllers\ListingController::class, 'manage'])->middleware('auth');
-
-//Single Listing:
-Route::get('/listings/{listing}', [\App\Http\Controllers\ListingController::class, 'show']);
-
 //Show manage Studies
 Route::get('/studies/manage',[\App\Http\Controllers\StudyController::class, 'manage'])->middleware('auth');
 
 //Single Study:
-Route::get('/studies/{listing}', [\App\Http\Controllers\StudyController::class, 'show']);
+Route::get('/studies/{study}', [\App\Http\Controllers\StudyController::class, 'show']);
 
 
 

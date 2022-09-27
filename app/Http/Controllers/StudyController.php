@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Study;
+use App\Models\Site;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -17,8 +18,10 @@ class StudyController extends Controller
 
     //Show single studies
     public function show(Study $study){
+
         return  view( 'studies.show', [
-            'study' => $study
+            'study' => $study,
+            'sites' => Site::all()
         ]);
     }
 

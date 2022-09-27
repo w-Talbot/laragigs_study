@@ -12,6 +12,9 @@
 
 <a href="/studies"> Click Here </a>
 
+ @foreach($sites as $site)
+{{$site['site_name']}}
+ @endforeach
 
 </body>
 </html>
